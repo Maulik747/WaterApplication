@@ -1,7 +1,5 @@
 from fastapi import APIRouter
-
 router = APIRouter()
-
 @router.get("/health")
 def health_check():
     return {"status": "healthy"}
@@ -19,7 +17,7 @@ def calculate_age(year_of_birth: int):
     from datetime import datetime
 
     current_year = datetime.now().year
-    age = current_year - year_of_birth
+    age = current_year - year_of_birth+1
 
     return {
         "year_of_birth": year_of_birth,
