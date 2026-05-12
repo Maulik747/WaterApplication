@@ -33,7 +33,6 @@ birth_year = st.number_input(
     value=2000,
     step=1
 )
-
 if st.button("Calculate Age"):
     response = requests.get(
         f"{BACKEND_URL}/calculate-age",
