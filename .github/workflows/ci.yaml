@@ -36,3 +36,17 @@ jobs:
         run: |
           cd backend
           python -m compileall .
+
+      - name: Build the docker image
+        run: |
+          docker build -t backend ./backend
+      - name: Build the docker image
+        run: |
+          docker build -t frontend ./frontend
+      - name: Push to Docker Hub
+        run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          docker tag backend:latest ${{ secrets.DOCKER_USERNAME }}/backend:latest
+          docker tag frontend:latest ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
