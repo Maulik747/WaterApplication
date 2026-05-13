@@ -1,18 +1,14 @@
-version: '3.9'
-
+version: '3.8'
 services:
-  backend:
-    build:
-      context: ./backend
-    container_name: fastapi-backend
+  app-backend:
+    # This tells Docker to go find the image on Docker Hub
+    image: maulik747/water-backend:latest 
     ports:
-      - "8000:8000"
+      - "8080:8080"
+    restart: always
 
-  frontend:
-    build:
-      context: ./frontend
-    container_name: streamlit-frontend
+  app-frontend:
+    image: maulik747/water-frontend:latest
     ports:
-      - "8501:8501"
-    depends_on:
-      - backend
+      - "80:80"
+    restart: always
