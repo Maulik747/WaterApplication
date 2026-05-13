@@ -24,7 +24,7 @@ jobs:
       - name: Pull and Run Images
         run: |
           # Pull the latest versions to ensure we aren't using old cached layers
-          docker compose -f docker-compose.yml pull
+          sudo docker compose -f docker-compose.yml pull
 
           # Re-create containers with the new images
           # --remove-orphans cleans up services removed from the config file
