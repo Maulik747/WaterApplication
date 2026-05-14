@@ -28,4 +28,4 @@ jobs:
 
           # Re-create containers with the new images
           # --remove-orphans cleans up services removed from the config file
-          docker compose -f docker-compose.yml up -d --remove-orphans
+          sudo docker compose -f docker-compose.yml up -d --remove-orphans

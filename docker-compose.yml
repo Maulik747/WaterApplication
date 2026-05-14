@@ -4,11 +4,11 @@ services:
     # This tells Docker to go find the image on Docker Hub
     image: maulik747/water-backend:latest 
     ports:
-      - "8080:8080"
+      - "8000:8000"
     restart: always
 
   app-frontend:
     image: maulik747/water-frontend:latest
     ports:
-      - "80:80"
+      - "80:8051"
     restart: always
